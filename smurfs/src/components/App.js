@@ -35,8 +35,15 @@ class App extends Component {
   };
 
   handleSubmit = e => {
+    console.log("smurf", this.state.smurf);
     e.preventDefault();
-    this.props.addSmurf(this.state.smurf);
+    if (this.state.smurf.name !== "") {
+      this.props.addSmurf(this.state.smurf);
+    } else {
+      alert(
+        `you cannot submit an empty form, please fill form out to add a smurf`
+      );
+    }
     this.setState({
       smurf: {
         name: "",
