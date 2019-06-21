@@ -13,7 +13,7 @@ body {
 }
 
 .smurfs-list {
-  margin-top: 36px;
+  margin: 10px auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -21,7 +21,7 @@ body {
 }
 
 .smurf {
-  width: 25%;
+  width: 15%;
   margin: 10px 32px;
   box-shadow: 0 1px 15px grey;
   padding: 25px 15px;
@@ -88,6 +88,18 @@ body {
   line-height: 25px;
   cursor: pointer;
   transition: box-shadow 0.2s;
+}
+
+@media (max-width: 1440px) {
+  .smurf {
+    width: 20%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .smurf {
+    width: 25%;
+  }
 }
 
 @media (max-width: 667px) {
