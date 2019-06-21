@@ -22,7 +22,7 @@ body {
 
 .smurf {
   width: 25%;
-  margin: 0 10px 32px;
+  margin: 10px 32px;
   box-shadow: 0 1px 15px grey;
   padding: 25px 15px;
   line-height: 25px;
@@ -32,8 +32,8 @@ body {
   font-size: 1rem;
 }
 
-.smurf div:nth-child(2),
-div:nth-child(3) {
+.smurf-age,
+.smurf-height {
   font-size: 0.8rem;
   text-align: left;
 }
@@ -88,4 +88,27 @@ div:nth-child(3) {
   line-height: 25px;
   cursor: pointer;
   transition: box-shadow 0.2s;
+}
+
+@media (max-width: 667px) {
+  .smurfs-list {
+    margin: auto 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-flow: column;
+  }
+
+  .smurf {
+    width: 70%;
+    margin: 10px auto;
+  }
+
+  .add-smurf-form {
+    width: 50%;
+  }
+
+  .add-smurf-btn {
+    width: 70%;
+  }
 }

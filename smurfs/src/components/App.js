@@ -60,44 +60,46 @@ class App extends Component {
     return (
       <div className="App">
         <div>
-          <form className="add-smurf-form" onSubmit={this.handleSubmit}>
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              onChange={this.changeHandler}
-              value={this.state.smurf.name}
-            />
-            <input
-              type="number"
-              name="age"
-              placeholder="Age"
-              onChange={this.changeHandler}
-              value={this.state.smurf.age}
-            />
-            <input
-              type="text"
-              name="height"
-              placeholder="Height"
-              onChange={this.changeHandler}
-              value={this.state.smurf.height}
-            />
-            <button className="add-smurf-btn">Add Smurf</button>
-          </form>
-        </div>
-        <h1>SMURFS!</h1>
-        <div className="smurfs-list">
-          {this.props.smurfs.map(smurf => {
-            return (
-              <div key={smurf.id} className="smurf">
-                <div>Name: {smurf.name}</div>
-                <div>Age: {smurf.age}</div>
-                <div>Height: {smurf.height}</div>
-                <button className="md-button">Update</button>
-                <button className="md-button-danger">Delete</button>
-              </div>
-            );
-          })}
+          <h1>SMURFS!</h1>
+          <div>
+            <form className="add-smurf-form" onSubmit={this.handleSubmit}>
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                onChange={this.changeHandler}
+                value={this.state.smurf.name}
+              />
+              <input
+                type="number"
+                name="age"
+                placeholder="Age"
+                onChange={this.changeHandler}
+                value={this.state.smurf.age}
+              />
+              <input
+                type="text"
+                name="height"
+                placeholder="Height"
+                onChange={this.changeHandler}
+                value={this.state.smurf.height}
+              />
+              <button className="add-smurf-btn">Add Smurf</button>
+            </form>
+          </div>
+          <div className="smurfs-list">
+            {this.props.smurfs.map(smurf => {
+              return (
+                <div key={smurf.id} className="smurf">
+                  <div className="smurf-name">Name: {smurf.name}</div>
+                  <div className="smurf-age">Age: {smurf.age}</div>
+                  <div className="smurf-height">Height: {smurf.height}</div>
+                  <button className="md-button">Update</button>
+                  <button className="md-button-danger">Delete</button>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     );
