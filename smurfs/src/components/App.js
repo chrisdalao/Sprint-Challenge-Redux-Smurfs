@@ -35,7 +35,6 @@ class App extends Component {
   };
 
   handleSubmit = e => {
-    console.log("smurf", this.state.smurf);
     e.preventDefault();
     if (
       this.state.smurf.name !== "" &&
@@ -61,7 +60,7 @@ class App extends Component {
     return (
       <div className="App">
         <div>
-          <form className="add-friend-form" onSubmit={this.handleSubmit}>
+          <form className="add-smurf-form" onSubmit={this.handleSubmit}>
             <input
               type="text"
               name="name"
@@ -83,7 +82,7 @@ class App extends Component {
               onChange={this.changeHandler}
               value={this.state.smurf.height}
             />
-            <button className="add-friend-btn">Add A Friend</button>
+            <button className="add-smurf-btn">Add Smurf</button>
           </form>
         </div>
         <h1>SMURFS!</h1>
@@ -91,9 +90,11 @@ class App extends Component {
           {this.props.smurfs.map(smurf => {
             return (
               <div key={smurf.id} className="smurf">
-                <div>{smurf.name}</div>
-                <div>{smurf.age}</div>
-                <div>{smurf.height}</div>
+                <div>Name: {smurf.name}</div>
+                <div>Age: {smurf.age}</div>
+                <div>Height: {smurf.height}</div>
+                <button className="md-button">Update</button>
+                <button className="md-button-danger">Delete</button>
               </div>
             );
           })}
