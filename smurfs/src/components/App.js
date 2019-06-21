@@ -37,7 +37,11 @@ class App extends Component {
   handleSubmit = e => {
     console.log("smurf", this.state.smurf);
     e.preventDefault();
-    if (this.state.smurf.name !== "") {
+    if (
+      this.state.smurf.name !== "" &&
+      this.state.smurf.age !== "" &&
+      this.state.smurf.height !== ""
+    ) {
       this.props.addSmurf(this.state.smurf);
     } else {
       alert(
