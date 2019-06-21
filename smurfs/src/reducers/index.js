@@ -47,6 +47,11 @@ export default (state = initialState, action) => {
         fetchingSmurfs: true
       };
     case FETCH_SMURFS_SUCCESS:
+      return {
+        ...state,
+        fetchingSmurfs: false,
+        smurfs: action.payload
+      };
     case FETCH_SMURFS_FAILURE:
     case CREATE_SMURFS_START:
     case CREATE_SMURFS_SUCCESS:
