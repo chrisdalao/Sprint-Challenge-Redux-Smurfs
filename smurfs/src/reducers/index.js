@@ -85,6 +85,18 @@ export default (state = initialState, action) => {
         deletingSmurf: true,
         error: ""
       };
+    case DELETE_SMURFS_SUCCESS:
+      return {
+        ...state,
+        smurfs: action.payload,
+        deletingSmurf: false
+      };
+    case DELETE_SMURFS_FAILURE:
+      return {
+        ...state,
+        deletingSmurf: false,
+        error: action.payload
+      };
     default:
       return state;
   }

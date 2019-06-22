@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import { connect } from "react-redux";
 import { getSmurfs, addSmurf, deleteSmurf } from "../actions";
+import Smurf from "./Smurf";
 /*
  to wire this component up you're going to need a few things.
  I'll let you do this part on your own. 
@@ -19,7 +20,6 @@ class App extends Component {
 
   componentDidMount() {
     this.props.getSmurfs();
-    console.log("props:", this.props);
   }
 
   changeHandler = e => {
@@ -91,13 +91,11 @@ class App extends Component {
           <div className="smurfs-list">
             {this.props.smurfs.map(smurf => {
               return (
-                <div key={smurf.id} className="smurf">
-                  <div className="smurf-name">Name: {smurf.name}</div>
-                  <div className="smurf-age">Age: {smurf.age}</div>
-                  <div className="smurf-height">Height: {smurf.height}</div>
-                  <button className="md-button">Update</button>
-                  <button className="md-button-danger">Delete</button>
-                </div>
+                <Smurf
+                  key={smurf.id}
+                  smurf={smurf}
+                  handleDelete={this.props.deleteSmurf}
+                />
               );
             })}
           </div>
@@ -112,6 +110,7 @@ const mapStateToProps = state => {
     smurfs: state.smurfs,
     fetchingSmurfs: state.fetchingSmurfs,
     addSmurf: state.addingSmurf,
+    deletingSmurf: state.deletingSmurf,
     deleteSmurf: state.deleteSmurf,
     error: state.error
   };
