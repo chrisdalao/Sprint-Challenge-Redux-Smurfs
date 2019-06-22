@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import { connect } from "react-redux";
-import { getSmurfs, addSmurf, deleteSmurf } from "../actions";
+import { getSmurfs, addSmurf, updateSmurf, deleteSmurf } from "../actions";
 import Smurf from "./Smurf";
 /*
  to wire this component up you're going to need a few things.
@@ -95,6 +95,7 @@ class App extends Component {
                   key={smurf.id}
                   smurf={smurf}
                   handleDelete={this.props.deleteSmurf}
+                  handleUpdate={this.props.updateSmurf}
                 />
               );
             })}
@@ -108,9 +109,8 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     smurfs: state.smurfs,
-    fetchingSmurfs: state.fetchingSmurfs,
-    addSmurf: state.addingSmurf,
-    deletingSmurf: state.deletingSmurf,
+    addSmurf: state.addSmurf,
+    updateSmurf: state.updateSmurf,
     deleteSmurf: state.deleteSmurf,
     error: state.error
   };
@@ -118,5 +118,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getSmurfs, addSmurf, deleteSmurf }
+  { getSmurfs, addSmurf, updateSmurf, deleteSmurf }
 )(App);

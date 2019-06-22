@@ -8,6 +8,9 @@ import {
   ADD_SMURFS_START,
   ADD_SMURFS_SUCCESS,
   ADD_SMURFS_FAILURE,
+  UPDATE_SMURFS_START,
+  UPDATE_SMURFS_SUCCESS,
+  UPDATE_SMURFS_FAILURE,
   DELETE_SMURFS_START,
   DELETE_SMURFS_SUCCESS,
   DELETE_SMURFS_FAILURE
@@ -64,8 +67,8 @@ export default (state = initialState, action) => {
     case ADD_SMURFS_START:
       return {
         ...state,
-        error: "",
-        addingSmurf: true
+        addingSmurf: true,
+        error: ""
       };
     case ADD_SMURFS_SUCCESS:
       return {
@@ -79,6 +82,13 @@ export default (state = initialState, action) => {
         addingSmurf: false,
         error: action.payload
       };
+    case UPDATE_SMURFS_START: {
+      return {
+        ...state,
+        updatingSmurf: true,
+        error: ""
+      };
+    }
     case DELETE_SMURFS_START:
       return {
         ...state,
